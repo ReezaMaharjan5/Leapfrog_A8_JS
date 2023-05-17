@@ -14,24 +14,12 @@ var images=["redpanda.jpg", "pangolin.jpg", "black_buck.png", "Snow-Leopard2.png
 //     document.getElementById("images").src = images[2];
 // } 
 
-var button1 = document.getElementById('pre');
+// var button1 = document.getElementById('pre');
 
-button1.onclick = function imageChange() {
-    document.getElementById("images").src = images[2];
-} 
-
-
-//for the next and previous buttons
-
-
-
-
-
-
-
-
-
-
+// button1.onclick = function imageChange() {
+    
+//     document.getElementById("images").src = images[2];
+// } 
 
 //clickable small circles in the button of the page to link into the coreesponding images
 var image_1 = document.getElementById('one');
@@ -69,6 +57,51 @@ image_5.onclick = function imageChange() {
     five.style.backgroundColor = 'orange';
 } 
 
+
+
+//for the next and previous buttons
+const slides =  document.querySelectorAll(".show")
+
+var count = 0;
+
+const slideImage=(slides)=>{
+
+    slides.forEach(
+        ((show, index) => {
+            show.style.transform = `translateX(-${index * 100}%)` ;
+            count++;
+        })
+    
+    )
+}
+
+const imageSlide = () => {
+    slides.forEach(
+        (show, index) => {
+            show.style.transform = `translateX(${index * 100}%)` ;
+        }
+    )
+}
+
+// var button1 = document.getElementById('pre');
+function imagePrevious() {
+    slideImage();
+    count--;
+}
+
+// var button2 = document.getElementById('next');
+function imageNext() {
+    imageSlide();
+    count++;
+}
+
+
+
+
+
+
+
+
 // var button1 = document.getElementById('pre')
 // button1.onclick = function myFunction() {
 //     button1.onclick = function imageChange1() {
@@ -76,15 +109,7 @@ image_5.onclick = function imageChange() {
 //     }
 //   }
 
-image_1.addEventListener('mouseover', function handleMouseOut() {
-    box.style.color = 'black';
-  });
+// image_1.addEventListener('mouseover', function handleMouseOut() {
+//     box.style.color = 'black';
+//   });
 
-const images5 = document.querySelectorAll(".image5");
-var count = 0;
-images5.forEach(
-    (image5, index => {
-        image5.style.left = `${index *100}%`;
-    })
-
-)
